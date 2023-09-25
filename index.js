@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const PORT = process.env.PORT || 7700;
 const { connection } = require("./db");
 const { userRouter } = require("./Routes/userRoutes");
 const { empRouter } = require("./Routes/empRoutes");
@@ -16,7 +17,7 @@ app.get("/",(req,res)=>{
     res.send("This is the home page.")
 })
 
-app.listen(7700, async()=>{
+app.listen(PORT, async()=>{
     try {
         await connection;
         console.log("Connected to the DB");
